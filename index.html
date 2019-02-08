@@ -111,6 +111,10 @@ if (getParam('title')) {
         document.getElementById('after-title').innerText = afterMap.getStyle().name;
     });
 }
+
+beforeMap.on('moveend', function () {
+    window.location.hash = window.location.hash.replace(/location=[-\.\d]*\/[-\.\d]*\/[-\.\d]*/, 'location=' + beforeMap.getZoom().toFixed(2) + '/' + beforeMap.getCenter().lat.toFixed(6) + '/' + beforeMap.getCenter().lng.toFixed(6));
+});
         </script>
 
     </body>
