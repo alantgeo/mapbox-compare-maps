@@ -32,12 +32,28 @@
                 bottom: 0;
                 width: 100%;
             }
+
+            #before-title {
+                left: 25%;
+            }
+            #after-title {
+                right: 25%;
+            }
+            .title {
+                position: absolute;
+                top: 10px;
+                padding: 5px;
+                background: white;
+            }
         </style>
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
 
         <div id='before' class='map'></div>
         <div id='after' class='map'></div>
+
+        <div id='before-title' class='title'></div>
+        <div id='after-title' class='title'></div>
         <script>
 /* based off https://www.mapbox.com/mapbox-gl-js/example/mapbox-gl-compare/ */
 
@@ -86,6 +102,15 @@ var map = new mapboxgl.Compare(beforeMap, afterMap, {
     // Set this to enable comparing two maps by mouse movement:
     mousemove: getParam('mouse')
 });
+
+if (getParam('title')) {
+    beforeMap.on('load', function () {
+        document.getElementById('before-title').innerText = beforeMap.getStyle().name;
+    });
+    afterMap.on('load', function () {
+        document.getElementById('after-title').innerText = afterMap.getStyle().name;
+    });
+}
         </script>
 
     </body>

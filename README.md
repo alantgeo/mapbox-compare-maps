@@ -7,9 +7,9 @@ https://alantgeo.github.io/mapbox-compare-maps/#left=USERNAME.TILESET&right=USER
 ```
 
 ## Parameters
-* `left` **required** Style ID of left map (username.tileset)
-* `right` **required** Style ID of right map (username.tileset)
+* `left` **required** Style ID of left map (username/styleid or username.tileset)
+* `right` **required** Style ID of right map (username/styleid or username.tileset)
 * `access_token` **required** Mapbox Access Token
 * `mouse` *optional* If true the swipe follows the cursor. (Default: false)
 * `location` *optional* ZOOM/LAT/LON default location. (Default: Style default location)
-
+* `title` *optional* If true the style titel is shown. (Default: false)
